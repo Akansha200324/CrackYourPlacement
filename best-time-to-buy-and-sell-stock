@@ -12,3 +12,8 @@ class Solution(object):
                 max_profit = price - min_price
         
         return max_profit
+
+# Example usage
+prices = [2, 4, 1]
+solution = Solution()
+print(solution.maxProfit(prices))  # Output: 2 (buy at 2, sell at 4)
