@@ -1,0 +1,16 @@
+class Solution(object):
+    def findDuplicates(self, nums):
+        n=len(nums)
+        nums.sort()
+        c=[]
+        j=0
+        if(len(nums)==1):
+            return c
+        for i in range(n-1):
+            if(nums[i]==nums[i+1]):
+                c.append(nums[i])
+                j+=1
+        return c
+
+            
+        
