@@ -1,0 +1,17 @@
+class Solution(object):
+    def subarraySum(self, nums, k):
+        s = 0  # prefix_sum
+        d = {0: 1}  # prefix_sum_counts
+        c = 0  # count
+        
+        for n in nums:
+            s += n  # Update the current prefix sum
+            if s - k in d:
+                c += d[s - k]  # Increment count if a valid subarray sum is found
+            if s in d:
+                d[s] += 1  # Update the frequency of the current prefix sum
+            else:
+                d[s] = 1
+        
+        return c
+
