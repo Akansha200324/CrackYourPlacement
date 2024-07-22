@@ -1,0 +1,16 @@
+from collections import deque
+
+class Solution(object):
+    def findMaxValueOfEquation(self, points, k):
+        max_val = float('-inf')
+        deq = deque()  
+
+        for x, y in points:
+            while deq and deq[0][1] < x - k:
+                deq.popleft()
+            if deq:
+                max_val = max(max_val, x + y + deq[0][0])
+            while deq and deq[-1][0] <= y - x:
+                deq.pop()
+            deq.append((y - x, x))
+        return max_val
