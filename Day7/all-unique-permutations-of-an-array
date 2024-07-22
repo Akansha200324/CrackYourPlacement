@@ -1,0 +1,7 @@
+from itertools import permutations
+
+class Solution:
+    def uniquePerms(self, arr, n):
+        unique_perms = set(permutations(arr))
+        perm_list = sorted([list(perm) for perm in unique_perms])
+        return perm_list
