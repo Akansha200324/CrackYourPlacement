@@ -1,0 +1,17 @@
+class Solution(object):
+    def isValid(self, s):
+        n = []
+        for char in s:
+            if char in '({[':
+                n.append(char)
+            else:
+                if not n:
+                    return False
+                top = n.pop()
+                if char == ')' and top != '(':
+                    return False
+                elif char == ']' and top != '[':
+                    return False
+                elif char == '}' and top != '{':
+                    return False
+        return len(n) == 0
